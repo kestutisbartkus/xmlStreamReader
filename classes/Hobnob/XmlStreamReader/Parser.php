@@ -385,10 +385,8 @@ class Parser
         //Build the SimpleXMLElement object. As this is a partial XML
         //document suppress any warnings or errors that might arise
         //from invalid namespaces
-        $data = new SimpleXMLElement(
-            preg_replace('/^(<[^\s>]+)/', '$1'.$namespaceStr, $pathData),
-            LIBXML_COMPACT | LIBXML_NOERROR | LIBXML_NOWARNING | LIBXML_NOCDATA
-        );
+        $data = preg_replace('/^(<[^\s>]+)/', '$1'.$namespaceStr, $pathData);
+            
 
         //Loop through each callback. If one of them stops the parsing
         //then cease operation immediately
